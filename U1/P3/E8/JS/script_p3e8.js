@@ -1,45 +1,33 @@
-document.write("<h1>Rebajas</h1>");
+// Función Rebajas //
+function rebajar(precioOriginal, porcentajeDesc){
+  var precioFin=(precioOriginal*(porcentajeDesc/100));
+  return precioFin;
+}
+// Función Rebajas //
 
 // Inicio Solicitud precio del articulo. //
-var precioValido = 0;
-
 do{
-  var precioSin = prompt("Por favor, introduce el precio del articulo: ");
+  var precio = prompt("Por favor, introduce el precio del articulo: ");
 
-  if(precioSin > 0 || precioSin < 1000000){
-    precioValido = 1;
-  }
-  else{
+  if(isNaN(precio) || precio < 1){
     alert("Se ha introducido un caracter no válido. Por favor, reintroduce el precio.");
-    precioValido = 0;
   }
-
-}while(precioValido == 0);
+}while(isNaN(precio) || precio < 1);
 // Fin Solicitud precio del articulo. //
 
-// Solicitud de la cantidad a descontar. //
-var descValido = 0;
-
+// Inicio solicitud del porcentaje a descontar. //
 do{
   var descuento = prompt("Por favor, introduce el porcentaje a descontar (0-100): ");
 
-  if(descuento >= 0 || descuento <=100){
-    descValido = 1;
-  }
-  else{
+  if(isNaN(descuento) || descuento < 1){
     alert("El valor introducido no puede aplicar ningún descuento. Re-introducelo.");
-    descValido = 0;
   }
+}while(isNaN(descuento) || descuento < 1);
+// Fin solicitud del porcentaje a descontar. //
 
-}while(descValido == 0);
-// Fin de la cantidad a descontar. //
+precioRebajado = precio - rebajar(precio, descuento);
 
-// Calculo del descuento //
-var operador1 = descuento/100;
-var operador2 = 1-operador1;
-var precioDefinitivo = precioSin*operador2;
-// Fin Calculo del descuento //
-
+document.write("<h1>Rebajas</h1>");
 // Impresión en pantalla //
-document.write("<p><h2>Precio antes: <s>" + precioSin + " euros.</s></h2></p>");
-document.write("<h1>Ahora por solo: " + precioDefinitivo + " euros.</h1>");
+document.write("<p><h2>Precio antes: <s>" + precio + " euros.</s></h2></p>");
+document.write("<h1>Ahora por solo: " + precioRebajado + " euros.</h1>");
