@@ -9,3 +9,5 @@ else if (userNum % 2 == 1) {
 else{
   document.write("<h2>" + "¿Si?, Ahora resulta que " + userNum + " es un n&uacute;mero."+ "</h2>");
 }
+
+(userNum%2 == 0)?console.log("PAR"):console.log("IMPAR");
