@@ -60,6 +60,3 @@ Estudiante.prototype.crearPassword = function(){
   var long_nom = this.nombre.length;
   Estudiante.prototype.password = ini_nom.concat(apel_minus, long_nom);
 }
-for (var z in Estudiante) {
-  Lista[z].crearPassword();
-}

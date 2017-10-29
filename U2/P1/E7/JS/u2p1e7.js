@@ -7,5 +7,7 @@ document.write('<li>El &iacute;ndice en el que est&aacute; la &uacute;ltima t es
 document.write('<li>La transformaci&oacute;n a min&uacute;sculas del string es: ' + frase.toLowerCase() + '</li>');
 document.write('<li>La transformaci&oacute;n a may&uacute;sculas del string es: ' + frase.toUpperCase() + '</li>');
 document.write('<li>Las palabras separadas por comas que componen la frase son: ' + frase.split(" ") + '</li>');
-document.write('<li>Las posiciones de la 11 a la 18 de frase son: ' + frase.charAt(11) + '(11) ' + frase.charAt(18) + '(18)</li>');
+document.write('<li>ERROR: Las posiciones de la 11 a la 18 de frase son: ' + frase.charAt(11) + '(11) ' + frase.charAt(18) + '(18)</li>');
+/*El código de la línea 10 es incorrecto, el código correcto era (una vez corregido):*/
+document.write('<li> CORREGIDO: Las posiciones de la 11 a la 18 de frase son: ' + frase.slice(11,18) + '</li>');
 document.write('</ol>');
