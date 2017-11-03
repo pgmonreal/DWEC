@@ -3,7 +3,7 @@ miVector = ["Pimiento", 25, 10, "Cebolla", "Pollo", "Ajo", "Basmati"];
 
 /* Si todos los elementos del array son de tipo Number */
 console.log("Todos los elementos del vector son de tipo NUMBER:");
-console.log(miVector.every(function(elemento){return isNaN(elemento);}))
+console.log(miVector.every(function(elemento){return !isNaN(elemento);}))
 
 console.log("\nHay algún elemento numerico menor de 20:");
 console.log(miVector.some(function(elemento){return elemento < 20;}))

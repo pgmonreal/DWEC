@@ -32,3 +32,20 @@ img {
 #cuerpo > div {
   height: 130px;
 }
+
+.cookies{
+  background-color: lightgrey;
+  width: 95%;
+  margin: auto;
+  border-radius: 5px;
+  padding: 1px;
+  display: none;
+  font-family: "Arial";
+  font-size: 12px;
+  position: sticky;
+  bottom: 5px;
+}
+
+.cookies a{
+  text-decoration: none;
+}

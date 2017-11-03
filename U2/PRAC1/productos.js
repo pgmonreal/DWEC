@@ -40,5 +40,19 @@ var productos = [
     foto:'https://media2.ocu.org//images/CE9E19F522012DD79E635A40B861F4F8C3DAB876/w150-c4/hf31300041604001.jpg',
     precio: 5.30,
     vegano: true
+  },
+  {
+    nombre:'Aguacate',
+    descripcion: 'Delicioso aguacate ya madurado. Unidad de 200g aprox.',
+    foto:'http://www.vivosano.org/portals/13/rs/media/images/aguacate.jpg',
+    precio: 1.50,
+    vegano: true
+  },
+  {
+    nombre:'Carrot Cake',
+    descripcion: 'Tarta de zanahoria. Aprox. 10 raciones.',
+    foto:'https://upload.wikimedia.org/wikipedia/commons/2/2f/Costa_carrot_cake_%2813070325384%29.jpg',
+    precio: 18,
+    vegano: false
   }
 ];

@@ -21,5 +21,9 @@ function verVegano(){
 }
 
 function condCompraOnline(){
-  
+  p.condCompra();
+}
+
+function navegarCarrito(){
+  p.carrito();
 }

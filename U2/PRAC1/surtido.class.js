@@ -19,7 +19,14 @@ function Surtido(productos){
     });
   }
 
-  
+  this.condCompra = function(){
+    var v = window.open("", "_blank", "width=400, height=100");
+    v.document.write('<html><head><title>Condiciones de compra</title></head><body><p>La parte contratante de la primera parte será considerada como la parte contratante de la primera parte.</p></body><button type="button" onclick="window.close()">Cerrar</button></html>');
+  }
+
+  this.carrito = function(){
+    location.href = "carrito.html";
+  }
 
   this.dibujarSurtido = function(produ){
     cuerpo.innerHTML = "";
