@@ -55,7 +55,7 @@ function Usuario(compra){
     var importe = this.importe;
     var decision = confirm("Total " + cantidad + " articulos. Importe: " + importe + " euros.\nEsta ud. conforme?");
     if(decision){
-      location.href = "pedidoOk.html";
+      location.href = "pedidoOK.html";
     }else{
       alert("Operación cancelada.");
       location.href = "home.html";
