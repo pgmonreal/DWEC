@@ -1,8 +1,8 @@
 var body = document.body.children;
 
-body[2] = body[2].innerHTML.replace('un', 'una').replace('título','fiesta');
+body[0].innerHTML = "Hola";
 body[3].innerHTML = "Esto era un ejemplo.";
-body[4].textContent = body[4].textContent = "Esto ya no se ni lo que era...";
+body[4].textContent = "Esto ya no se ni lo que era...";
 
 document.title = "Nuevo titulo.";
 
