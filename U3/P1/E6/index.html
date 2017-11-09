@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crea elementos del DOM</title>
+    <script type="text/javascript">
+    onload = function creaDOM(){
+    /*Aquí se escribe lo que sea necesario*/
+    var titular = document.createElement('h1');
+    titular.innerHTML = "Este es el ejercicio 6";
+    titular.style.fontFamily = "Arial";
+    titular.style.color = "blue";
+    document.body.appendChild(titular);
+
+    var imagen = document.createElement('img');
+    imagen.setAttribute("src", "img/img.jpg");
+    imagen.setAttribute("alt", "Ejercicio6");
+    imagen.setAttribute("width", "50px");
+    imagen.setAttribute("height", "50px");
+    document.body.appendChild(imagen);
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
