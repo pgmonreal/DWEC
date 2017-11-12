@@ -8,6 +8,7 @@ function anadirElemento(){
     linea.style.color = color.value;
     document.body.appendChild(linea);
     linea.setAttribute("onclick", "eliminarElemento()");
+    texto.value = "";
   }else if (!texto.value) {
     alert("No has introducido ningún producto.");
   }else if (color.value == 0){
@@ -23,4 +24,13 @@ function eliminarElemento(){
   if(decision){
     document.body.removeChild(eliminar);
   }
+}
+
+function borrarLista(){
+  var listaCompleta = document.querySelectorAll("p");
+
+  for(var i=0; i<listaCompleta.length; i++){
+    listaCompleta[i].parentNode.removeChild(listaCompleta[i]);
+  }
+
 }
