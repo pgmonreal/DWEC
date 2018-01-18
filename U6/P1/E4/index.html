@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>[U6-P1-E4]</title>
+
+    <script type="text/javascript">
+
+      if(window.XMLHttpRequest){
+        var xhr = new XMLHttpRequest;
+      }else if(ActiveXObject("Microsoft.XMLHTTP")){
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+
+      onload = function(){
+        document.forms[0].onsubmit = function(e){
+          e.preventDefault();
+          var url = "login.php";
+          xhr.open("POST", url, true);
+          xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+              var recibeJSON = JSON.parse(xhr.responseText);
+              var token = recibeJSON.token;
+              if(token == 5678){
+                sesion.innerHTML = "Usuario logado";
+                localStorage.setItem("token", token);
+                location.assign("homeLogado.html");
+              }else{
+                sesion.innerHTML = "Usuario o contraseña incorrecto.";
+              }
+            }else if(xhr.readyState == 4){
+              alert("Se ha producido un error al obtener los datos"
+              + "\n\nreadyState: " + xhr.readyState
+              + "\nstatus: " + xhr.status
+              + "\nheaders: " + xhr.getAllResponseHeaders());
+            }
+          }
+
+          function obtenEnviaDatosLogin(){
+            var us = document.getElementById("user").value;
+            var pass = document.getElementById("password").value;
+            var strLogin = "usuario=" + encodeURIComponent(us) + "&password=" + encodeURIComponent(pass);
+            console.log(strLogin);
+            return strLogin;
+          }
+
+          var datosLogin = obtenEnviaDatosLogin();
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.send(datosLogin);
+
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Login JSON</h1>
+    <form action="#" method="post">
+      <div>Usuario: <input type="text" id="user" name="user"></div>
+      <div>Contraseña: <input type="password" id="password" name="password"></div>
+      <div><button type="submit" name="button">Iniciar sesión</button></div>
+      <div id="sesion"></div>
+    </form>
+  </body>
+</html>

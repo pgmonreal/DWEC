@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <title>[U6-P1-E1]</title>
+
+    <style media="screen">
+      span{
+        text-decoration: line-through;
+      }
+
+      #titular{
+        font-family: 'Roboto Slab', serif;
+      }
+    </style>
+
+    <script>
+      onload = function(){
+
+        if(window.XMLHttpRequest){
+          var xhr = new XMLHttpRequest();
+        }else if(ActiveXObject("Microsoft.XMLHTTP")){
+          var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        nueva.onclick = function(){
+          /* Random de 1 a 5. Usamos el 5 para obtener un ERROR 404 */
+          var randonNum = Math.floor(((Math.random()*5)+1));
+          var url = "repo/noticia" + randonNum + ".txt"
+          xhr.open("GET", url, true);
+          xhr.onreadystatechange = muestraTitular;
+          xhr.send();
+        }
+
+        function muestraTitular(){
+          var ahora = new Date();
+          cabeceras.innerHTML += "<br /><br />" + ahora + ": <br />" + xhr.getAllResponseHeaders();
+
+          if (xhr.readyState == 0){
+            estado.innerHTML += "Petición no enviada.<br />";
+          }else if(xhr.readyState == 1){
+            estado.innerHTML += "Petición inicializada.<br />";
+          }else if(xhr.readyState == 2){
+            estado.innerHTML += "Cabecera recibida.<br />";
+          }else if(xhr.readyState == 3){
+            estado.innerHTML += "Cargando contenido...<br />";
+          }else if(xhr.readyState == 4){
+            estado.innerHTML += "Operación completada.<br />";
+          }
+
+          codEstado.innerHTML += xhr.status + "<br />";
+
+          if(xhr.readyState == 4 && xhr.status == 200){
+            titular.innerHTML = xhr.responseText;
+          }else if(xhr.status == 404){
+            titular.innerHTML = "Error 404. <span>Se ha censurado la noticia.</span> No se ha encontrado la noticia."
+          }
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="titular">Noticiero DAW</h1>
+    <button id="nueva">¡Dame una noticia!</button> <br /><br />
+
+    <div id="cabeceras"> <b>Cabeceras HTTP:</b> </div><br />
+    <div id="estado"> <b>Estado:<br /><br /></b> </div>
+    <div id="codEstado"> <b>Código estado: <br><br> </b> </div>
+  </body>
+</html>
